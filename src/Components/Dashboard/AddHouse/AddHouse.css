@@ -1,0 +1,60 @@
+.add-house h4{
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 33px;
+    color: #0C0C0C;
+}
+
+.add-house p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #0C0C0C;
+}
+
+.add-house label {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #232323;
+}
+
+.add-house input::placeholder,
+.add-house textarea::placeholder {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.396px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.add-house input:focus::placeholder,
+.add-house textarea:focus::placeholder {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.add-house .upload-image input[type="file"] {
+    display: none;
+}
+
+.add-house .upload-image label {
+    padding: 6px 40px;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #275A53;
+    background: #DEFFED;
+    border: 1px solid #275A53;
+    border-radius: 5px;
+    box-sizing: border-box;
+    position: absolute;
+    cursor: pointer;
+}
+
+.add-house .btn {
+    color: #FFFFFF;
+    background: #275A53;
+    font-weight: normal;
+    font-size: 16px;
+    padding: 8px 40px;
+}
