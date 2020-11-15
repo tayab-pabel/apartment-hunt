@@ -1,0 +1,25 @@
+.navbar .logo {
+    width: 100px;
+    height: 54.8px;
+}
+
+.navbar .nav-link {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #000000;
+}
+
+.navbar .login-btn {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #FFFFFF;
+    background: #275A53;
+    border-radius: 5px;
+    padding: 8px 30px;
+}
+
+.navbar .login-btn:hover {
+    text-decoration: none;
+}
