@@ -1,0 +1,35 @@
+.service .service-header p {
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.0015em;
+    color: #275A53;
+}
+
+.service h2 {
+    font-weight: bold;
+    font-size: 34px;
+    letter-spacing: 0.0015em;
+    color: #16322E;
+}
+
+.service img {
+    width: 80px;
+    height: 80px;
+}
+
+.service h5 {
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 0.0015em;
+    color: #16322E;
+}
+
+.service p {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: 0.0015em;
+    color: #606268;
+}

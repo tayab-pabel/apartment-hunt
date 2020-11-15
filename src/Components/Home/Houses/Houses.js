@@ -17,7 +17,7 @@ const Houses = () => {
                 {/* {
                     houses.map(house =><House key={house._id} house={house}></House>)
                 } */}
-                <div className="col-md-4 p-3">
+                <div className="col-lg-4 col-md-6 p-3">
                     <div class="card">
                         <img class="card-img-top" src={house} alt="Card image cap" />
                         <div class="card-body">
@@ -43,7 +43,7 @@ const Houses = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-4 p-3">
+                <div className="col-lg-4 col-md-6 p-3">
                     <div class="card">
                         <img class="card-img-top" src={house} alt="Card image cap" />
                         <div class="card-body">
@@ -69,7 +69,7 @@ const Houses = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-4 p-3">
+                <div className="col-lg-4 col-md-6 p-3">
                     <div class="card">
                         <img class="card-img-top" src={house} alt="Card image cap" />
                         <div class="card-body">
@@ -95,7 +95,7 @@ const Houses = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-4 p-3">
+                <div className="col-lg-4 col-md-6 p-3">
                     <div class="card">
                         <img class="card-img-top" src={house} alt="Card image cap" />
                         <div class="card-body">
@@ -121,7 +121,7 @@ const Houses = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-4 p-3">
+                <div className="col-lg-4 col-md-6 p-3">
                     <div class="card">
                         <img class="card-img-top" src={house} alt="Card image cap" />
                         <div class="card-body">
@@ -147,7 +147,7 @@ const Houses = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-4 p-3">
+                <div className="col-lg-4 col-md-6 p-3">
                     <div class="card">
                         <img class="card-img-top" src={house} alt="Card image cap" />
                         <div class="card-body">

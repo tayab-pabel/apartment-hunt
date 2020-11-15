@@ -1,0 +1,35 @@
+.footer {
+    background: #275A53;
+    color: #FFFFFF;
+}
+
+.footer .fas {
+    font-size: 25px;
+}
+
+.footer p {
+    font-size: 16px;
+    letter-spacing: 0.0015em;
+    line-height: 24px;
+}
+
+.footer h5 {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.footer ul li {
+    padding: 5px 0;
+}
+
+.footer ul li a {
+    color: #FFFFFF;
+}
+
+.footer ul li a:hover {
+    text-decoration: none;
+}
+
+.footer img {
+    height: 25px;
+}
