@@ -10,6 +10,8 @@ import Dashboard from './Components/Dashboard/Dashboard/Dashboard';
 import BookingList from './Components/Dashboard/BookingList/BookingList';
 import AddHouse from './Components/Dashboard/AddHouse/AddHouse';
 import MyRents from './Components/Dashboard/MyRents/MyRents';
+import HomeDetails from './Components/HomeDetails/HomeDetails';
+import Login from './Components/Login/Login/Login';
 
 function App() {
   return (
@@ -17,6 +19,12 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Home />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/houseDetails">
+          <HomeDetails />
         </Route>
         <Route path="/dashboard">
           <Dashboard />

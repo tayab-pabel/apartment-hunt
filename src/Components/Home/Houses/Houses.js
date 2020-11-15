@@ -38,7 +38,7 @@ const Houses = () => {
                             </div>
                             <div className="d-flex justify-content-between align-items-center mt-4 pt-2">
                                 <h3 className="pt-2">$194</h3>
-                                <Link to="#" class="view-details-btn">View Details</Link>
+                                <Link to="/houseDetails" class="view-details-btn">View Details</Link>
                             </div>
                         </div>
                     </div>

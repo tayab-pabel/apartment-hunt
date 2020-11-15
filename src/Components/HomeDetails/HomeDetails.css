@@ -1,0 +1,15 @@
+.home-details .home-details-header {
+    background-image:linear-gradient(to right, rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), url("../../images/searchbar-bg.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 300px;
+}
+
+.home-details .home-details-header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    text-align: center;
+    color: #FFFFFF;
+}
