@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../../Navbar/Navbar';
+import Houses from '../Houses/Houses';
 import Searchbar from '../Searchbar/Searchbar';
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
         <div className="home">
             <Navbar />
             <Searchbar />
+            <Houses />
         </div>
     );
 };

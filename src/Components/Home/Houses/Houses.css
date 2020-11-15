@@ -1,0 +1,64 @@
+.houses p {
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.0015em;
+    color: #275A53;
+}
+
+.houses h2 {
+    font-weight: bold;
+    font-size: 34px;
+    letter-spacing: 0.0015em;
+    color: #16322E;
+}
+
+.houses .card {
+    border: none;
+}
+
+.houses .card-img-top {
+    border-radius: 0;
+}
+
+.houses .card h5 {
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 0.0015em;
+    color: #16322E;
+}
+
+.houses .card .map {
+    width: 14.76px;
+    height: 20px;
+}
+
+.houses .card .bed,
+.houses .card .bath {
+    width: 24px;
+    height: 24px;
+}
+
+.houses .card p {
+    font-weight: normal;
+    letter-spacing: 0.0015em;
+    color: #747474;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.houses .card h3 {
+    font-weight: bold;
+    font-size: 36px;
+    letter-spacing: 0.0015em;
+    color: #275A53;
+}
+
+.houses .card .view-details-btn {
+    color: #FFFFFF;
+    background: #275A53;
+    padding: 14px 28px;
+}
+
+.houses .card .view-details-btn:hover {
+    text-decoration: none;
+}
