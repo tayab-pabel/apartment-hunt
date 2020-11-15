@@ -1,0 +1,43 @@
+.searchbar {
+    background-image:linear-gradient(to right, rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), url("../../../images/searchbar-bg.png");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    min-height: 500px;
+}
+
+.searchbar .searchbar-content {
+    max-width: 720px;
+}
+
+.searchbar .searchbar-content h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.searchbar .searchbar-content .form-control,
+.searchbar .searchbar-content .find-now-btn{
+    height: 50px;
+}
+
+.searchbar .searchbar-content input::placeholder{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.0015em;
+    color: #747474;
+}
+
+.searchbar .searchbar-content .find-now-btn {
+    color: #FFFFFF;
+    background: #275A53;
+    border-radius: 5px;
+    padding: 14px 46px;
+}
+
+.searchbar .searchbar-content .find-now-btn:hover {
+    text-decoration: none;
+}

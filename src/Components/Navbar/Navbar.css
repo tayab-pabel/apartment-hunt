@@ -3,21 +3,22 @@
     height: 54.8px;
 }
 
-.navbar .nav-link {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    color: #000000;
-}
-
+.navbar .nav-link,
 .navbar .login-btn {
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
+}
+
+.navbar .nav-link {
+    color: #000000!important;
+}
+
+.navbar .login-btn {
     color: #FFFFFF;
     background: #275A53;
     border-radius: 5px;
-    padding: 8px 30px;
+    padding: 10px 30px;
 }
 
 .navbar .login-btn:hover {
