@@ -6,15 +6,18 @@ import { createUser, handleFacebookSignIn, handleGoogleSignIn, initializeFirebas
 import Navbar from '../Navbar/Navbar';
 import googleLogo from '../../images/logos/google.png';
 import fbLogo from '../../images/logos/facebook.png';
+import { connect } from 'react-redux';
 
 initializeFirebase()
-const Login = () => {
+const Login = (props) => {
+    console.log(props.data)
 //History Data To Redirect...
 let history = useHistory();
 let location = useLocation();
 let { from } = location.state || { from: { pathname: "/" } }
 
 const [accState, setAccState] = useState(true)
+const [userData, setuserData] = useState({})
 
 // Mannage Login Resistration...... 
     const { register, handleSubmit, errors } = useForm();
@@ -33,7 +36,8 @@ const [accState, setAccState] = useState(true)
         if(accState){
             signInEmailPass(data.email, data.password)
             .then(res => {
-                console.log(res)
+                setuserData(res)
+                props.login()
                 // history.replace(from)                    
             })
             .catch(error => alert(error))   
@@ -44,7 +48,8 @@ const [accState, setAccState] = useState(true)
 const googleLogin =() =>{
     handleGoogleSignIn()
     .then(result => {
-        console.log(result)
+        setuserData(result)
+        props.login()
         history.replace(from) 
     })
 }
@@ -53,7 +58,8 @@ const googleLogin =() =>{
 const facebookLogin =() =>{
     handleFacebookSignIn()
     .then(result => {
-        console.log(result)
+        setuserData(result)
+        props.login()
         history.replace(from) 
     })
 }
@@ -128,4 +134,14 @@ const facebookLogin =() =>{
     );
 };
 
-export default Login;
+function mapStateToProps(state){
+    return {data: state}
+}
+
+function mapDispatchToProps(dispatch){
+    return{
+        login: (userData) => dispatch({type: 'LOGIN', payload: userData})
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Login)

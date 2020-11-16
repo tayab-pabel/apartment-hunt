@@ -13,33 +13,38 @@ import MyRents from './Components/Dashboard/MyRents/MyRents';
 import HomeDetails from './Components/HomeDetails/HomeDetails';
 import Login from './Components/Login/Login';
 
+import { Provider } from 'react-redux';
+import store from './Components/Redux';
+
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route path="/houseDetails">
-          <HomeDetails />
-        </Route>
-        <Route path="/dashboard">
-          <Dashboard />
-        </Route>
-        <Route path="/bookingList">
-          <BookingList />
-        </Route>
-        <Route path="/addHouse">
-          <AddHouse />
-        </Route>
-        <Route path="/myRents">
-          <MyRents />
-        </Route>
-      </Switch>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/houseDetails">
+            <HomeDetails />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />
+          </Route>
+          <Route path="/bookingList">
+            <BookingList />
+          </Route>
+          <Route path="/addHouse">
+            <AddHouse />
+          </Route>
+          <Route path="/myRents">
+            <MyRents />
+          </Route>
+        </Switch>
+      </Router>
+    </Provider>
   );
 }
 
