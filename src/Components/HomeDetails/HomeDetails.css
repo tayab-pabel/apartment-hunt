@@ -13,3 +13,58 @@
     text-align: center;
     color: #FFFFFF;
 }
+
+.home-details .card,
+.home-details input {
+    border-radius: 0;
+}
+
+.home-details input::placeholder,
+.home-details textarea::placeholder {
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.0015em;
+    color: #747474;
+}
+
+.home-details .request-booking-btn {
+    color: #FFFFFF;
+    background: #275A53;
+    padding: 14px 28px;
+    border-radius: 0;
+}
+
+.home-details .homeDetailImage1 {
+    width: 770px;
+    height: 376px;
+}
+
+.home-details .rent-title,
+.home-details .rent-price {
+    font-weight: bold;
+    font-size: 36px;
+    letter-spacing: 0.0015em;
+}
+
+.home-details .rent-title {
+    color: #16322E;
+}
+
+.home-details .rent-price {
+    color: #275A53;
+}
+
+.home-details p {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 44px;
+    letter-spacing: 0.0015em;
+    color: #747474;
+}
+
+.home-details h4 {
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 42px;
+    color: #16322E;
+}
