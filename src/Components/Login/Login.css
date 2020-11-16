@@ -1,0 +1,83 @@
+.login .card {
+    max-width: 570px;
+    max-height: 457px;
+}
+
+.login h3 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    color: #000000;
+}
+
+.login input::placeholder,
+.login label,
+.login .social-login p,
+.login p {
+    font-weight: 500;
+    font-size: 16px;
+    color: #000000;
+}
+
+.login .login-alert {
+    justify-content: space-between;
+}
+
+.login .green-text {
+    font-weight: 500;
+    font-size: 16px;
+    color: #275A53;
+}
+
+.login .login-form-btn {
+    color: #FFFFFF;
+    background: #275A53;
+    padding: 14px 28px;
+    border-radius: 0;
+}
+
+.login .social-login {
+    max-width: 461px;
+    margin: auto;
+    font-family: Montserrat;
+}
+
+.login .social-login .btn {
+    border: 1px solid #C7C7C7!important;
+    border-radius: 57px!important;
+}
+
+.login .icon {
+    float: left;
+    width: 30px;
+}
+
+.login .or {
+    font-weight: 500;
+    max-width: 400px;
+	margin: 24px auto;
+	position: relative;
+	display: grid;
+	place-items: center;
+}
+
+.login .or:before,
+.login .or:after {
+	content: "";
+	position: absolute;
+	width: calc(50% - 30px);
+	height: 1px;
+	background: #aaa;
+}
+
+.login .or:before {
+	left: 0;
+}
+
+.login .or:after {
+	right: 0;
+}
+
+
+
+

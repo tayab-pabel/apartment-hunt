@@ -4,6 +4,8 @@ import { useForm } from 'react-hook-form'
 import './Login.css';
 import { createUser, handleFacebookSignIn, handleGoogleSignIn, initializeFirebase, signInEmailPass } from '../FirebaseSetup/FirebaseAuth';
 import Navbar from '../Navbar/Navbar';
+import googleLogo from '../../images/logos/google.png';
+import fbLogo from '../../images/logos/facebook.png';
 
 initializeFirebase()
 const Login = () => {
@@ -60,41 +62,66 @@ const facebookLogin =() =>{
         <div className="login">
             <Navbar />
             <div className="container">
-                <div className="col-md-5 mx-auto mt-4 py-3">
-                    <div className="card shadow">
-                        <div className="card-body text-center py-3">
+                <div className="col-md-6 mx-auto mt-5">
+                    <div className="card p-5">
+                        <div className="">
                             {accState ?
                                 <>
-                                    <h3 className='text-center textColor1 font-weight-bold mb-2'>LOGIN</h3>
+                                    <h3 className='mb-4 pb-2'>Login</h3>
                                     <form className="" onSubmit={handleSubmit(onSubmit)}>
-                                        <input ref={register({ required: true })} name='email' placeholder='Email' className='form-control mt-3 border-top-0 border-left-0 border-right-0' type="email" />
+                                        <input ref={register({ required: true })} name='email' placeholder='Username or Email' className='form-control mt-4 pl-0 border-top-0 border-left-0 border-right-0' type="email" />
                                         {errors.email && <span className="text-danger">* Required</span>}
-                                        <input ref={register({ required: true })} name='password' placeholder='Password' className='form-control mt-3 border-top-0 border-left-0 border-right-0' type="password" />
+                                        <input ref={register({ required: true })} name='password' placeholder='Password' className='form-control mt-4 pl-0 border-top-0 border-left-0 border-right-0' type="password" />
                                         {errors.password && <span className="text-danger">* Required</span>}<br/>
-                                        <Link className='text-secondary ' onClick={() => setAccState(!accState)}>Create An account</Link>
-                                        <button type='submit' className='btn login-btn btn-block my-3'>Login</button>
+                                        <div className="d-flex login-alert">
+                                            <div className="login-remember">
+                                                <input style={{ width: '18px' }} type="checkbox" />
+                                                <label className="ml-2">Remember Me</label>
+                                            </div>
+                                            <div>
+                                                <a href="#" className="green-text">Forget Password</a>
+                                            </div>
+                                        </div>
+                                        <button type='submit' className='btn login-form-btn btn-block mt-4'>Login</button>
+                                        <p className="text-center mt-4 mb-0">Don’t have an account? 
+                                        <Link className='green-text' onClick={() => setAccState(!accState)}> Create an account</Link>
+                                        </p>
                                     </form>
                                 </>
                                 :
                                 <>
-                                    <h3 className='text-center textColor1 font-weight-bold mb-2'>REGISTER</h3>
+                                    <h3 className='mb-4 pb-2'>Create an account</h3>
                                     <form className="" onSubmit={handleSubmit(onSubmit)}>
-                                        <input ref={register({ required:true})} name='userName' placeholder='Name' className='form-control mt-3 border-top-0 border-left-0 border-right-0' type="text" />
+                                        <input ref={register({ required:true})} name='userName' placeholder='Full Name' className='form-control mt-4 pl-0 border-top-0 border-left-0 border-right-0' type="text" />
                                         {errors.userName && <span className="text-danger">* Required</span>}
-                                        <input ref={register({ required:true})} name='email' placeholder='Email' className='form-control mt-3 border-top-0 border-left-0 border-right-0' type="email" />
+                                        <input ref={register({ required:true})} name='email' placeholder='Email' className='form-control mt-4 pl-0 border-top-0 border-left-0 border-right-0' type="email" />
                                         {errors.email && <span className="text-danger">* Required</span>}
-                                        <input ref={register({ required:true})} name='password' placeholder='Password' className='form-control mt-3 border-top-0 border-left-0 border-right-0' type="password" />
+                                        <input ref={register({ required:true})} name='password' placeholder='Password' className='form-control mt-4 pl-0 border-top-0 border-left-0 border-right-0' type="password" />
                                         {errors.password && <span className="text-danger">* Required</span>}<br/>
-                                        <Link className='text-secondary ' onClick={() => setAccState(!accState)}>Already Have An Account</Link>
-                                        <button type='submit' className='btn login-btn btn-block my-3'>Registration</button>
+                                        <button type='submit' className='btn login-form-btn btn-block my-3'>Create an account</button>
+                                        <p className="text-center mt-4 mb-0">Already have an account?
+                                        <Link className='green-text' onClick={() => setAccState(!accState)}> Login</Link>
+                                        </p>
                                     </form>
                                 </>
                             }
-                                <button onClick={googleLogin} className='w-50 ml-0 btn my-2'> <span className='mr-2'><img height='20' src="https://i.ibb.co/9vjdGtz/google.png" alt=""/></span>Google Sign In</button>
-                                <button onClick={facebookLogin} className='w-50 ml-0 btn my-2'> <span className='mr-2'><img height='20' src="https://i.ibb.co/4StbQ8J/fb.png" alt=""/></span>Facebook Sign In</button>
                             </div>
                         </div>
-                    
+                        <div className="social-login text-center">
+                            <p className="or mt-4">Or</p>
+                            <div className="google-signIn">
+                                <a onClick={googleLogin} className="btn btn-block pt-2 pb-0">
+                                    <img className="icon" src={googleLogo} alt=""/>
+                                    <p className="text-center pt-1 pb-0 mb-2">Continue with Google</p>
+                                </a>
+                            </div>
+                            <div className="fb-signIn mt-2">
+                                <a onClick={facebookLogin} className="btn btn-block pt-2 pb-0">
+                                    <img className="icon" src={fbLogo} alt=""/>
+                                    <p className="text-center pt-1 pb-0 mb-2">Continue with Facebook</p>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
         </div>
