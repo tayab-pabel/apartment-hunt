@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../Navbar/Navbar';
 import './HomeDetails.css';
 import homeDetailImage1 from '../../images/housedetail1.png';
@@ -8,6 +8,41 @@ import homeDetailImage4 from '../../images/housedetail4.png';
 import homeDetailImage5 from '../../images/housedetail5.png';
 
 const HomeDetails = () => {
+
+    const [info, setInfo] = useState({ status: 'Pending' });
+
+    const handleBlur = e => {
+        const newInfo = { ...info };
+        newInfo[e.target.name] = e.target.value;
+        setInfo(newInfo);
+    }
+
+    const handleSubmit = (e) => {
+        const formData = new FormData();
+        formData.append('name', info.name);
+        formData.append('number', info.number);
+        formData.append('email', info.email);
+        formData.append('message', info.message);
+        formData.append('status', info.status);
+
+        fetch('http://localhost:5000/addBooking', {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data) {
+                    alert('Booking added Successfully');
+                }
+            })
+            .catch(error => {
+                alert('Booking Added Failed');
+                console.error(error);
+            })
+
+        e.preventDefault();
+    }
+
     return (
         <div className="home-details">
             <Navbar />
@@ -61,11 +96,11 @@ const HomeDetails = () => {
                     </div>
                     <div className="col-md-4">
                         <div className="card px-3 py-4">
-                            <form>
-                                <input name='name' placeholder='Full Name' className='form-control mt-3' type="text" />
-                                <input name='number' placeholder='Phone No.' className='form-control mt-3' type="text" />
-                                <input name='email' placeholder='Username or Email' className='form-control mt-3' type="email" />
-                                <textarea className="form-control mt-3" rows="6" placeholder="Your message"></textarea>
+                            <form onSubmit={handleSubmit}>
+                                <input onBlur={handleBlur} name='name' placeholder='Full Name' className='form-control mt-3' type="text" />
+                                <input onBlur={handleBlur} name='number' placeholder='Phone No.' className='form-control mt-3' type="text" />
+                                <input onBlur={handleBlur} name='email' placeholder='Username or Email' className='form-control mt-3' type="email" />
+                                <textarea onBlur={handleBlur} name='message' className="form-control mt-3" rows="6" placeholder="Your message"></textarea>
                                 <button type='submit' className='btn request-booking-btn btn-block mt-4'>Request Booking</button>
                             </form>
                         </div>

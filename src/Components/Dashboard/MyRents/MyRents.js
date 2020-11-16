@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 import './MyRents.css';
 
 const MyRents = () => {
+
+    const [housesData, setHousesData] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/allHouseData')
+            .then(res => res.json())
+            .then(data => setHousesData(data))
+    }, [])
+
     return (
         <div className="my-rents container-fluid row">
             <Sidebar />
@@ -21,13 +29,18 @@ const MyRents = () => {
                                     <th className="text-secondary" scope="col">Action</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                            <tr>
-                                <td className="pt-4">Washington Avenue</td>
-                                <td className="pt-4">$195</td>
-                                <td><a class="btn" href="#">View Details</a></td>
-                            </tr>
-                            </tbody>
+                            {
+                                housesData.map(house => 
+                                    <tbody>
+                                        <tr>
+                                            <td className="pt-4">{house.title}</td>
+                                            <td className="pt-4">${house.price}</td>
+                                            <td><a class="btn" href="#">View Details</a></td>
+                                        </tr>
+                                    </tbody>
+                                )
+                            }
+                            
                         </table>
                     </div>
                 </div>
