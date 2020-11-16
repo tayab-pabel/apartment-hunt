@@ -11,7 +11,7 @@ import BookingList from './Components/Dashboard/BookingList/BookingList';
 import AddHouse from './Components/Dashboard/AddHouse/AddHouse';
 import MyRents from './Components/Dashboard/MyRents/MyRents';
 import HomeDetails from './Components/HomeDetails/HomeDetails';
-import Login from './Components/Login/Login/Login';
+import Login from './Components/Login/Login';
 
 function App() {
   return (
