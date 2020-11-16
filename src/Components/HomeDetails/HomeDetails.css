@@ -54,7 +54,7 @@
     color: #275A53;
 }
 
-.home-details p {
+.home-details .home-details-content p {
     font-weight: 500;
     font-size: 20px;
     line-height: 44px;

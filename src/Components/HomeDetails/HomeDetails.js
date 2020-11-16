@@ -6,6 +6,7 @@ import homeDetailImage2 from '../../images/housedetail2.png';
 import homeDetailImage3 from '../../images/housedetail3.png';
 import homeDetailImage4 from '../../images/housedetail4.png';
 import homeDetailImage5 from '../../images/housedetail5.png';
+import Footer from '../Footer/Footer';
 
 const HomeDetails = () => {
     return (
@@ -18,7 +19,7 @@ const HomeDetails = () => {
                     </div>
                 </div>
             </div>
-            <div className="container">
+            <div className="home-details-content container">
                 <div className="row my-5">
                     <div className="col-md-8">
                         <img className="img-fluid homeDetailImage1" src={homeDetailImage1} alt=""/>
@@ -72,6 +73,7 @@ const HomeDetails = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };
