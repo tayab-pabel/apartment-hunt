@@ -12,6 +12,7 @@ import { useParams } from 'react-router-dom';
 const HomeDetails = () => {
     const [request, setRequest] = useState({});
     const [houseData, setHouseData] = useState({});
+    console.log(houseData);
     const {key} = useParams()
 
     const handleBlur = e => {
@@ -61,7 +62,7 @@ const HomeDetails = () => {
             <div className="home-details-content container">
                 <div className="row my-5">
                     <div className="col-md-8">
-                        <img className="img-fluid homeDetailImage1" src={homeDetailImage1} alt=""/>
+                        <img className="img-fluid homeDetailImage1" src={`data:icon/png;base64,${houseData.image.img}`} />
                         <div className="row mt-3">
                             <div className="col-3">
                                 <img className="img-fluid homeDetailImage2" src={homeDetailImage2} alt=""/>
@@ -77,8 +78,8 @@ const HomeDetails = () => {
                             </div>
                         </div>
                         <div className="d-flex justify-content-between mt-5">
-                            <h3 className="rent-title">Family Apartment Three</h3>
-                            <h3 className="rent-price">$256</h3>
+                            <h3 className="rent-title">{houseData.title}</h3>
+                            <h3 className="rent-price">{houseData.price}</h3>
                         </div>
                         <p className="mt-3">3000 sq-ft., 3 Bedroom, Semi-furnished, Luxurious, South facing Apartment for Rent in Rangs Malancha, Melbourne.</p>
                         <h4 className="mt-5">Price Details-</h4>

@@ -6,12 +6,12 @@ import './Houses.css';
 const Houses = () => {
     const [houses, setHouses] = useState([]);
     
-
     useEffect( () => {
         fetch('https://young-plateau-45606.herokuapp.com/rents')
         .then(res => res.json())
         .then(data => setHouses(data))
     }, [])
+
     return (
         <div className="houses container my-5">
             <div className="houses-header text-center">
