@@ -1,8 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 import './AddHouse.css';
 
 const AddHouse = () => {
+    const [house, setHouse] = useState({});
+    const [file, setFile] = useState(null);
+
+    const handleBlur = e => {
+        const newHouse = { ...house };
+        newHouse[e.target.name] = e.target.value;
+        setHouse(newHouse);
+    }
+
+    const handleFileChange = (e) => {
+        const newFile = e.target.files[0];
+        setFile(newFile);
+    }
+
+    const handleSubmit = () => {
+        const formData = new FormData()
+        console.log(house);
+        formData.append('file', file);
+        formData.append('title', house.title);
+        formData.append('price', house.price);
+        formData.append('location', house.location);
+        formData.append('bedroom', house.bedroom);
+        formData.append('bathroom', house.bathroom);
+
+        fetch('http://localhost:5000/addHouse', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
+
     return (
         <div className="add-house container-fluid row">
             <Sidebar />
@@ -12,31 +49,31 @@ const AddHouse = () => {
                     <p>Tayab Pabel</p>
                 </div>
                 <div className="booking-form ml-md-5 ml-0">
-                    <form style={{maxWidth:'1044px'}}>
+                    <form onSubmit={handleSubmit} style={{maxWidth:'1044px'}}>
                         <div className="form-group row">
                             <div className="col-6">
                                 <label htmlFor="title">House Title</label>
-                                <input name="title" type="text" id="title" className="form-control" placeholder="Enter title"/>
+                                <input onBlur={handleBlur} name="title" type="text" id="title" className="form-control" placeholder="Enter title"/>
                             </div>
                             <div className="col-6">
                                 <label htmlFor="price">Price</label>
-                                <input name="price" type="text" id="price" className="form-control" placeholder="Enter Price"/>
+                                <input onBlur={handleBlur} name="price" type="text" id="price" className="form-control" placeholder="Enter Price"/>
                             </div>
                         </div>
                         <div className="form-group row">
                             <div className="col-6">
                                 <label htmlFor="location">Location</label>
-                                <input name="location" type="text" id="location" className="form-control" placeholder="Enter Location"/>
+                                <input onBlur={handleBlur} name="location" type="text" id="location" className="form-control" placeholder="Enter Location"/>
                             </div>
                             <div className="col-6">
                                 <label htmlFor="bedroom">No of Bedroom</label>
-                                <input name="bedroom" type="text" id="bedroom" className="form-control" placeholder="Enter No of Bedroom"/>
+                                <input onBlur={handleBlur} name="bedroom" type="text" id="bedroom" className="form-control" placeholder="Enter No of Bedroom"/>
                             </div>
                         </div>
                         <div className="form-group row">
                             <div className="col-6">
                                 <label htmlFor="bathroom">No of Bathroom</label>
-                                <input name="bathroom" type="text" id="bathroom" className="form-control" placeholder="Enter No of Bathroom"/>
+                                <input onBlur={handleBlur} name="bathroom" type="text" id="bathroom" className="form-control" placeholder="Enter No of Bathroom"/>
                             </div>
                             <div className="col-md-3 col-6">
                                 <div className="upload-image">
@@ -45,7 +82,7 @@ const AddHouse = () => {
                                         <i className="fas fa-cloud-upload-alt"></i>
                                         <span className="ml-2">Upload Image</span>
                                     </label>
-                                    <input name="file" type="file" id="file" className="form-control"/>
+                                    <input onChange={handleFileChange} name="file" type="file" id="file" className="form-control"/>
                                 </div>
                             </div>
                         </div>

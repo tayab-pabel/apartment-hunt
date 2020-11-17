@@ -25,3 +25,8 @@
     line-height: 24px;
     color: #000000;
 }
+
+.booking-list table th,
+.booking-list table td {
+    width: 220px;
+}

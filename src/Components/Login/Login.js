@@ -6,23 +6,23 @@ import { createUser, handleFacebookSignIn, handleGoogleSignIn, initializeFirebas
 import Navbar from '../Navbar/Navbar';
 import googleLogo from '../../images/logos/google.png';
 import fbLogo from '../../images/logos/facebook.png';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 
 initializeFirebase()
 const Login = (props) => {
-    console.log(props.data)
-//History Data To Redirect...
-let history = useHistory();
-let location = useLocation();
-let { from } = location.state || { from: { pathname: "/" } }
+    const userData = useSelector(state=>state.isSignIn)
+    console.log(userData)
 
-const [accState, setAccState] = useState(true)
-const [userData, setuserData] = useState({})
+    //History Data To Redirect...
+    let history = useHistory();
+    let location = useLocation();
+    let { from } = location.state || { from: { pathname: "/" } }
 
-// Mannage Login Resistration...... 
+    const [accState, setAccState] = useState(true)
+
+    // Manage Login Registration...... 
     const { register, handleSubmit, errors } = useForm();
     const onSubmit = data => { 
-        console.log(data)
 
         if(!accState){
             createUser(data.email, data.password, data.userName)
@@ -36,33 +36,30 @@ const [userData, setuserData] = useState({})
         if(accState){
             signInEmailPass(data.email, data.password)
             .then(res => {
-                setuserData(res)
-                props.login()
-                // history.replace(from)                    
+                props.login(res)
+                history.replace(from)                    
             })
             .catch(error => alert(error))   
         }
-     }
+    }
 
-//Mannage Google Sign in...
-const googleLogin =() =>{
-    handleGoogleSignIn()
-    .then(result => {
-        setuserData(result)
-        props.login()
-        history.replace(from) 
-    })
-}
+    //Manage Google Sign in...
+    const googleLogin =() =>{
+        handleGoogleSignIn()
+        .then(result => {
+            props.login(result)
+            history.replace(from) 
+        })
+    }
 
-//Mannage Google Sign in...
-const facebookLogin =() =>{
-    handleFacebookSignIn()
-    .then(result => {
-        setuserData(result)
-        props.login()
-        history.replace(from) 
-    })
-}
+    //Manage Google Sign in...
+    const facebookLogin =() =>{
+        handleFacebookSignIn()
+        .then(result => {
+            props.login(result)
+            history.replace(from) 
+        })
+    }
 
     return (
         <div className="login">
@@ -140,7 +137,7 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
     return{
-        login: (userData) => dispatch({type: 'LOGIN', payload: userData})
+        login: (value) => dispatch({type: 'LOGIN', payload:value})
     }
 }
 

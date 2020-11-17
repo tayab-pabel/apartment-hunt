@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Rent from '../Rent/Rent';
 import Sidebar from '../Sidebar/Sidebar';
 import './MyRents.css';
 
 const MyRents = () => {
+    const [houses, setHouses] = useState([]);
+
+    useEffect( () => {
+        fetch('http://localhost:5000/rents')
+        .then(res => res.json())
+        .then(data => setHouses(data))
+    }, [])
+
     return (
         <div className="my-rents container-fluid row">
             <Sidebar />
@@ -12,24 +21,18 @@ const MyRents = () => {
                     <p>Tayab Pabel</p>
                 </div>
                 <div className="rents-table ml-md-5 ml-0">
-                    <div className="rents-list">
-                        <table className="table table-borderless">
-                            <thead>
-                                <tr>
-                                    <th className="text-secondary" scope="col">House Name</th>
-                                    <th className="text-secondary" scope="col">Price</th>
-                                    <th className="text-secondary" scope="col">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td className="pt-4">Washington Avenue</td>
-                                <td className="pt-4">$195</td>
-                                <td><a class="btn" href="#">View Details</a></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                <table className="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th className="text-secondary" scope="col">House Name</th>
+                            <th className="text-secondary" scope="col">Price</th>
+                            <th className="text-secondary" scope="col">Action</th>
+                        </tr>
+                    </thead>
+                </table>
+                    {
+                        houses.map(house => <Rent key={house._id} house={house}></Rent>)
+                    }
                 </div>
             </div>
         </div>

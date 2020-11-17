@@ -33,3 +33,8 @@
     font-size: 16px;
     padding: 8px 10px;
 }
+
+.my-rents table th,
+.my-rents table td {
+    width: 200px;
+}

@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Request from '../Request/Request';
 import Sidebar from '../Sidebar/Sidebar';
 import './BookingList.css';
 
 const BookingList = () => {
+    const [bookings, setBookings] = useState([]);
+
+    useEffect( () => {
+        fetch('http://localhost:5000/bookings')
+        .then(res => res.json())
+        .then(data => setBookings(data))
+    }, [])
+
     return (
         <div className="booking-list container-fluid row">
             <Sidebar />
@@ -16,17 +25,16 @@ const BookingList = () => {
                         <table className="table table-borderless">
                             <thead>
                                 <tr>
-                                <th className="text-secondary" scope="col">Name</th>
-                                <th className="text-secondary" scope="col">Email</th>
-                                <th className="text-secondary" scope="col">Phone No</th>
-                                <th className="text-secondary" scope="col">Message</th>
-                                <th className="text-secondary" scope="col">Status</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Phone No</th>
+                                    <th scope="col">Message</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                
-                            </tbody>
                         </table>
+                        {
+                            bookings.map(booking => <Request key={booking._id} booking={booking}></Request>)
+                        }
                     </div>
                 </div>
             </div>

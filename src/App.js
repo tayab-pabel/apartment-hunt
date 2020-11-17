@@ -12,9 +12,9 @@ import AddHouse from './Components/Dashboard/AddHouse/AddHouse';
 import MyRents from './Components/Dashboard/MyRents/MyRents';
 import HomeDetails from './Components/HomeDetails/HomeDetails';
 import Login from './Components/Login/Login';
-
 import { Provider } from 'react-redux';
 import store from './Components/Redux';
+import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
 
 function App() {
   return (
@@ -27,21 +27,21 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/houseDetails">
+          <ProtectedRoute path="/houseDetails">
             <HomeDetails />
-          </Route>
-          <Route path="/dashboard">
+          </ProtectedRoute>
+          <ProtectedRoute path="/dashboard">
             <Dashboard />
-          </Route>
-          <Route path="/bookingList">
+          </ProtectedRoute>
+          <ProtectedRoute path="/bookingList">
             <BookingList />
-          </Route>
-          <Route path="/addHouse">
+          </ProtectedRoute>
+          <ProtectedRoute path="/addHouse">
             <AddHouse />
-          </Route>
-          <Route path="/myRents">
+          </ProtectedRoute>
+          <ProtectedRoute path="/myRents">
             <MyRents />
-          </Route>
+          </ProtectedRoute>
         </Switch>
       </Router>
     </Provider>

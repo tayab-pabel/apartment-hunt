@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../Navbar/Navbar';
 import './HomeDetails.css';
 import homeDetailImage1 from '../../images/housedetail1.png';
@@ -9,6 +9,35 @@ import homeDetailImage5 from '../../images/housedetail5.png';
 import Footer from '../Footer/Footer';
 
 const HomeDetails = () => {
+    const [request, setRequest] = useState({});
+
+    const handleBlur = e => {
+        const newRequest = { ...request };
+        newRequest[e.target.name] = e.target.value;
+        setRequest(newRequest);
+    }
+
+    const handleSubmit = () => {
+        const formData = new FormData()
+        console.log(request);
+        formData.append('name', request.name);
+        formData.append('number', request.number);
+        formData.append('email', request.email);
+        formData.append('message', request.message);
+
+        fetch('http://localhost:5000/addRequest', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
+
     return (
         <div className="home-details">
             <Navbar />
@@ -62,11 +91,11 @@ const HomeDetails = () => {
                     </div>
                     <div className="col-md-4">
                         <div className="card px-3 py-4">
-                            <form>
-                                <input name='name' placeholder='Full Name' className='form-control mt-3' type="text" />
-                                <input name='number' placeholder='Phone No.' className='form-control mt-3' type="text" />
-                                <input name='email' placeholder='Username or Email' className='form-control mt-3' type="email" />
-                                <textarea className="form-control mt-3" rows="6" placeholder="Your message"></textarea>
+                            <form onSubmit={handleSubmit}>
+                                <input onBlur={handleBlur}  name='name' placeholder='Full Name' id="name" className='form-control mt-3' type="text" />
+                                <input onBlur={handleBlur} name='number' placeholder='Phone No.' id="number" className='form-control mt-3' type="text" />
+                                <input onBlur={handleBlur} name='email' placeholder='Username or Email' id="email" className='form-control mt-3' type="email" />
+                                <textarea onBlur={handleBlur} name='message' id="message" className="form-control mt-3" rows="6" placeholder="Your message"></textarea>
                                 <button type='submit' className='btn request-booking-btn btn-block mt-4'>Request Booking</button>
                             </form>
                         </div>
