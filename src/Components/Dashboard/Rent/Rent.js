@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Rent = ({house}) => {
     return (
@@ -8,7 +9,7 @@ const Rent = ({house}) => {
                         <tr>
                             <td className="pt-4">{house.title}</td>
                             <td className="pt-4">{house.price}</td>
-                            <td><a className="btn" href="#">View Details</a></td>
+                            <td><Link to={`/houseDetails/${house._id}`} className="btn" >View Details</Link></td>
                         </tr>
                 </tbody>
             </table>
