@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../Navbar/Navbar';
 import './HomeDetails.css';
 import homeDetailImage1 from '../../images/housedetail1.png';
@@ -7,9 +7,12 @@ import homeDetailImage3 from '../../images/housedetail3.png';
 import homeDetailImage4 from '../../images/housedetail4.png';
 import homeDetailImage5 from '../../images/housedetail5.png';
 import Footer from '../Footer/Footer';
+import { useParams } from 'react-router-dom';
 
 const HomeDetails = () => {
     const [request, setRequest] = useState({});
+    const [houseData, setHouseData] = useState({});
+    const {key} = useParams()
 
     const handleBlur = e => {
         const newRequest = { ...request };
@@ -25,7 +28,7 @@ const HomeDetails = () => {
         formData.append('email', request.email);
         formData.append('message', request.message);
 
-        fetch('http://localhost:5000/addRequest', {
+        fetch('https://young-plateau-45606.herokuapp.com/addRequest', {
             method: 'POST',
             body: formData
         })
@@ -37,6 +40,13 @@ const HomeDetails = () => {
                 console.error(error)
             })
     }
+
+    useEffect(() => {
+        const url = `https://young-plateau-45606.herokuapp.com/selectedHouse/${key}`;
+        fetch(url)
+        .then(res => res.json())
+        .then(data => setHouseData(data))
+      }, []);
 
     return (
         <div className="home-details">

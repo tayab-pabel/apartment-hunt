@@ -11,7 +11,6 @@ import { connect, useSelector } from 'react-redux';
 initializeFirebase()
 const Login = (props) => {
     const userData = useSelector(state=>state.isSignIn)
-    console.log(userData)
 
     //History Data To Redirect...
     let history = useHistory();
@@ -131,14 +130,10 @@ const Login = (props) => {
     );
 };
 
-function mapStateToProps(state){
-    return {data: state}
-}
-
 function mapDispatchToProps(dispatch){
     return{
         login: (value) => dispatch({type: 'LOGIN', payload:value})
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Login)
+export default connect(null,mapDispatchToProps)(Login)

@@ -27,7 +27,7 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <ProtectedRoute path="/houseDetails">
+          <ProtectedRoute path="/houseDetails/:key">
             <HomeDetails />
           </ProtectedRoute>
           <ProtectedRoute path="/dashboard">

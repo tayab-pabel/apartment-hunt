@@ -12,7 +12,7 @@ const House = ({house}) => {
                 {
                     house.image ? <img class="card-img-top" src={`data:icon/png;base64,${house.image.img}`} />
                     :
-                    <img class="card-img-top" src={`http://localhost:5000/${house.icon}`} />
+                    <img class="card-img-top" src={`https://young-plateau-45606.herokuapp.com/${house.icon}`} />
                 }
                 <div class="card-body">
                     <h5 class="card-title mb-3">{house.title}</h5>
@@ -32,7 +32,7 @@ const House = ({house}) => {
                     </div>
                     <div className="d-flex justify-content-between align-items-center mt-4 pt-2">
                         <h3 className="pt-2">{house.price}</h3>
-                        <Link to="/houseDetails" class="view-details-btn">View Details</Link>
+                        <Link to={`/houseDetails/${house._id}`} class="view-details-btn">View Details</Link>
                     </div>
                 </div>
             </div>

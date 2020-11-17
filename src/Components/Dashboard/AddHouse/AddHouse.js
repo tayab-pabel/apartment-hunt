@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import Sidebar from '../Sidebar/Sidebar';
 import './AddHouse.css';
 
 const AddHouse = () => {
+    const userData = useSelector(state=>state)
     const [house, setHouse] = useState({});
     const [file, setFile] = useState(null);
 
@@ -27,7 +29,7 @@ const AddHouse = () => {
         formData.append('bedroom', house.bedroom);
         formData.append('bathroom', house.bathroom);
 
-        fetch('http://localhost:5000/addHouse', {
+        fetch('https://young-plateau-45606.herokuapp.com/addHouse', {
             method: 'POST',
             body: formData
         })
@@ -46,7 +48,7 @@ const AddHouse = () => {
             <div className="col-md-10 mt-5 ml-md-5 ml-0">
                 <div className="d-flex justify-content-between ml-md-5 ml-0 mb-5">
                     <h4 className="ml-md-5 mb-0">Add Rent House</h4>
-                    <p>Tayab Pabel</p>
+                    <p>{userData.name}</p>
                 </div>
                 <div className="booking-form ml-md-5 ml-0">
                     <form onSubmit={handleSubmit} style={{maxWidth:'1044px'}}>

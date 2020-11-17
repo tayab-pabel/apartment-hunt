@@ -5,9 +5,10 @@ import './Houses.css';
 
 const Houses = () => {
     const [houses, setHouses] = useState([]);
+    
 
     useEffect( () => {
-        fetch('http://localhost:5000/rents')
+        fetch('https://young-plateau-45606.herokuapp.com/rents')
         .then(res => res.json())
         .then(data => setHouses(data))
     }, [])
