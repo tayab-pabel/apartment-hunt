@@ -22,7 +22,7 @@ const Sidebar = () => {
                 </li>
                 <li>
                     <Link to="/myRents" className="dashboard-component">
-                        <i class="fas fa-home"></i> <span>My Rents</span>
+                        <i className="fas fa-home"></i> <span>My Rents</span>
                     </Link>
                 </li>
             </ul>

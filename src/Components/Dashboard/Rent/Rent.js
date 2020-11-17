@@ -8,7 +8,7 @@ const Rent = ({house}) => {
                         <tr>
                             <td className="pt-4">{house.title}</td>
                             <td className="pt-4">{house.price}</td>
-                            <td><a class="btn" href="#">View Details</a></td>
+                            <td><a className="btn" href="#">View Details</a></td>
                         </tr>
                 </tbody>
             </table>

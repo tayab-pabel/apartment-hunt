@@ -13,17 +13,17 @@ const Service = () => {
             </div>
             <div className="row">
                 <div className="col-lg-4 col-md-6 mt-5 p-4">
-                    <img class="service1" src={service1} alt=""/>
+                    <img className="service1" src={service1} alt=""/>
                     <h5 className="pt-4 pb-2">Wide Range of Properties</h5>
                     <p>With a robust selection of popular properties on hand, as well as leading properties from experts.</p>
                 </div>
                 <div className="col-lg-4 col-md-6 mt-5 p-4">
-                    <img class="service2" src={service2} alt=""/>
+                    <img className="service2" src={service2} alt=""/>
                     <h5 className="pt-4 pb-2">Wide Range of Properties</h5>
                     <p>With a robust selection of popular properties on hand, as well as leading properties from experts.</p>
                 </div>
                 <div className="col-lg-4 col-md-6 mt-5 p-4">
-                    <img class="service3" src={service3} alt=""/>
+                    <img className="service3" src={service3} alt=""/>
                     <h5 className="pt-4 pb-2">Trusted by Thousands</h5>
                     <p>10 new offers every day. 350 offers on site, trusted by a community of thousands of users.</p>
                 </div>

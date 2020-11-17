@@ -62,7 +62,7 @@ const HomeDetails = () => {
             <div className="home-details-content container">
                 <div className="row my-5">
                     <div className="col-md-8">
-                        <img className="img-fluid homeDetailImage1" src={`data:icon/png;base64,${houseData.image.img}`} />
+                        <img className="img-fluid homeDetailImage1" src={homeDetailImage1} />
                         <div className="row mt-3">
                             <div className="col-3">
                                 <img className="img-fluid homeDetailImage2" src={homeDetailImage2} alt=""/>
