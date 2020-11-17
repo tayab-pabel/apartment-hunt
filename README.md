@@ -12,7 +12,7 @@
    - Firebase (Google Auth, Facebook Auth, Email & Pass Auth, Firebase Hosting)
    - NodeJs (ExpressJs, MongoDB, Body-Parser, CORS, File-Upload, Env, Nodemon)
    - Bootstrap4
-   - HTML5
+   - HTML5 
    - CSS3
 
 
